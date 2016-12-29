@@ -5,7 +5,7 @@ using namespace std;
 int limit, total = 1;
 
 int CheckSplitter(int x) {
-	if (x%2 == 0 && (x/2-2)%3 == 0){
+	if (x%2 == 0 && (x/2-2)%3 == 0 && x!=4){
 		return 1;
 	} else {
 		return 0;
@@ -41,7 +41,6 @@ void generator (num *front = start) {
 			
             total +=2;
 			
-            cout << "splitter = " << front -> n << endl;
 			generator(en);
 			generator(on);
 			
@@ -49,7 +48,6 @@ void generator (num *front = start) {
 		} else {
 		    num *t = newnum(2 *(front->n));
 			front -> even = t;
-			cout << "normal = " << front -> n << endl;
 			front = t;
             total++;
 		}
